@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class AuthUser {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO yerine IDENTITY daha sağlamdır
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
