@@ -3,12 +3,14 @@ server:
     include-message: always
     include-binding-errors: always
 
+
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/registration
-    username: your_username
-    password: your_password
+    url: jdbc:postgresql://aws-0-eu-west-1.pooler.supabase.com:5432/postgres?sslmode=require
+    username: postgres.xtizukcxvbwjgubuxemk
+    password: 5Azcia0UDxRmumzy
     driver-class-name: org.postgresql.Driver
+
 
   jpa:
     hibernate:
