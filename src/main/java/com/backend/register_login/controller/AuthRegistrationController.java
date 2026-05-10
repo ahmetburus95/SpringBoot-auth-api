@@ -1,13 +1,15 @@
 package com.backend.register_login.controller;
 
 import com.backend.register_login.dto.RegisterRequest;
-import com.backend.register_login.model.AuthUser;
+import com.backend.register_login.model.User;
 import com.backend.register_login.repository.AuthUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -20,7 +22,7 @@ public class AuthRegistrationController {
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
 
-        if (authUserRepository.existsByUsername(request.getUsername())) {
+        if (authUserRepository.existsByName(request.getUsername())) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body("Bu kullanıcı adı zaten kullanılıyor.");
@@ -32,12 +34,14 @@ public class AuthRegistrationController {
                     .body("Bu email zaten kayıtlı.");
         }
 
-        AuthUser user = new AuthUser();
-        user.setUsername(request.getUsername());
+        User user = new User();
+        user.setUsername(request.getUsername()); // BURASI KRİTİK
         user.setEmail(request.getEmail());
         user.setPassword(
                 passwordEncoder.encode(request.getPassword())
         );
+
+
 
         authUserRepository.save(user);
 

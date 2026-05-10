@@ -20,7 +20,7 @@ public class AuthLoginController {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            request.getUsername(),
+                            request.getUsername(), // BURASI OK
                             request.getPassword()
                     )
             );
