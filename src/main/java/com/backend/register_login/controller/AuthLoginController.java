@@ -20,13 +20,13 @@ public class AuthLoginController {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            request.getUsername(), // BURASI OK
+                            request.getName(),
                             request.getPassword()
                     )
             );
 
             return ResponseEntity.ok(
-                    "Giriş başarılı! Hoş geldin " + request.getUsername()
+                    "Giriş başarılı! Hoş geldin " + request.getName()
             );
 
         } catch (Exception e) {

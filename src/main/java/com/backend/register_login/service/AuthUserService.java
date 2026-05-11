@@ -26,7 +26,7 @@ public class AuthUserService implements UserDetailsService {
         if (authUser.isPresent()) {
             var userObj = authUser.get();
             return org.springframework.security.core.userdetails.User.builder()
-                    .username(userObj.getUsername())
+                    .username(userObj.getName())
                     .password(userObj.getPassword())
                     .build();
         }else{

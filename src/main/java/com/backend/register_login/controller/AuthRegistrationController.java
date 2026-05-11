@@ -22,7 +22,7 @@ public class AuthRegistrationController {
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
 
-        if (authUserRepository.existsByName(request.getUsername())) {
+        if (authUserRepository.existsByName(request.getName())) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body("Bu kullanıcı adı zaten kullanılıyor.");
@@ -35,7 +35,7 @@ public class AuthRegistrationController {
         }
 
         User user = new User();
-        user.setUsername(request.getUsername()); // BURASI KRİTİK
+        user.setName(request.getName());
         user.setEmail(request.getEmail());
         user.setPassword(
                 passwordEncoder.encode(request.getPassword())

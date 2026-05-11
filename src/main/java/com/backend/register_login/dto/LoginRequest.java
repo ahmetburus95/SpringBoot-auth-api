@@ -5,14 +5,6 @@ public class LoginRequest {
     private String name;
     private String password;
 
-    public String getUsername() {
-        return name;
-    }
-
-    public void setUsername(String name) {
-        this.name = name;
-    }
-
     public String getName() {
         return name;
     }
