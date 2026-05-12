@@ -82,7 +82,8 @@ spring:
 ## 📷 API Screenshots
 
 ### Login Request
-
+![Login Request](login.png)
+![Register Request](register.png)
 
 ---
 
