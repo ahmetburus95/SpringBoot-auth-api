@@ -15,7 +15,6 @@ import java.util.Optional;
 @AllArgsConstructor
 public class AuthUserService implements UserDetailsService {
 
-    @Autowired
     private AuthUserRepository authUserRepository;
 
     @Override
