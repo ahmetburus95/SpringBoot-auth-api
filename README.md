@@ -83,6 +83,8 @@ spring:
 
 ### Login Request
 ![Login Request](login.png)
+
+### Register Request
 ![Register Request](register.png)
 
 ---
